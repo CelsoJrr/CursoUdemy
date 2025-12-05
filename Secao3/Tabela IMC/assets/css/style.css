@@ -7,6 +7,7 @@
     box-sizing: border-box;
     outline: 0;
 }
+
 body {
     margin: 0;
     padding: 0;
@@ -17,15 +18,17 @@ body {
 }
 
 .container {
-    max-width:  640px;
+    max-width: 640px;
     margin: 50px auto;
     background: white;
     padding: 20px;
     border-radius: 10px;
 }
 
-form input , form label, form button {
-    display: block; 
+form input,
+form label,
+form button {
+    display: block;
     width: 100%;
     margin-bottom: 10px;
 }
@@ -36,7 +39,7 @@ form input {
     padding: 0 20px;
 }
 
-form input:focus{
+form input:focus {
     outline: 1px solid var(--primary-color);
 }
 
@@ -53,4 +56,12 @@ form button {
 
 form button:hover {
     background: var(--primary-color-dark);
+}
+
+.p-valid {
+    background: rgb(0, 216, 11);
+}
+
+.p-notvalid {
+    background: red;
 }

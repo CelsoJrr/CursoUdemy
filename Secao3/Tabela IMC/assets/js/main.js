@@ -1,39 +1,52 @@
-function imc(){
+function imc() {
     const form = document.querySelector('.form');
-    const result = document.querySelector('.result');
 
-    function calcularIMC(evento){
-        evento.preventDefault();
-        const peso = document.getElementById('peso').value;
-        const altura = document.getElementById('altura').value;
-        const calculo = Number(peso)/Number(altura)**2
-        let resposta = ''
+    function criarP() {
+        const p = document.createElement('p');
+        return p;
+    }
 
-        if (Number(peso) && Number(altura)) {
-            if (calculo < 18.5){
-                resposta = "Abaixo do peso"
-            }else if (calculo <= 24.9){
-                resposta = "Peso Normal"
-            }else if (calculo <= 29.9){
-                resposta = "Sobrepeso"
-            }else if(calculo > 30){
-                resposta = "Obesidade"
-            }
-            result.innerHTML = `${calculo.toFixed(2)} está ${resposta}`
-        }else{
-            result.innerHTML = 'error'
+
+    function setResult(msg, isValid) {
+        const result = document.querySelector('#result');
+        result.innerHTML = '';
+        const p = criarP();
+        p.className = 'p-valid';
+        if (isValid == false) {
+            p.className = 'p-notvalid';
         }
+        p.innerHTML = msg;
+        result.appendChild(p);
+    }
+
+    function getIMC(peso, altura) {
+        return peso / altura ** 2;
+    }
+
+    function verificarIMC(imc) {
+        const resultados = ['Abaixo do peso', 'Peso Normal'];
+        if (imc < 18.5) return resultados[0];
+
+    }
 
 
-        
-    };
-    
-
-
-
-
-
-    form.addEventListener('submit',calcularIMC);
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const inputPeso = e.target.querySelector('#peso');
+        const inputAltura = e.target.querySelector('#altura');
+        const peso = Number(inputPeso.value);
+        const altura = Number(inputAltura.value);
+        if (!peso) {
+            setResult("Peso invalido!", false);
+            return
+        }
+        if (!altura) {
+            setResult("Altura invalida!", false);
+            return
+        }
+        const imc = getIMC(peso, altura);
+        setResult(verificarIMC(imc));
+    });
 };
 
 imc();
