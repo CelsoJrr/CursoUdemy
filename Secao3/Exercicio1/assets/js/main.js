@@ -33,4 +33,4 @@ function date() {
     //metodo simples
     const metodonovo = data.toLocaleDateString('pt-BR', { dateStyle: 'full', timeStyle: 'short' })
 }
-date();
+date();             
