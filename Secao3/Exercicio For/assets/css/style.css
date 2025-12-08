@@ -1,0 +1,58 @@
+:root {
+    --primary-color: rgb(20, 48, 211);
+    --primary-color-dark: rgb(5, 21, 110);
+}
+
+
+* {
+    box-sizing: border-box;
+    outline: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--primary-color);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.3em;
+    line-height: 1.5em;
+}
+
+.container {
+    max-width:  640px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+form input , form label, form button {
+    display: block; 
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+form input {
+    font-size: 24px;
+    height: 50px;
+    padding: 0 20px;
+}
+
+form input:focus{
+    outline: 1px solid var(--primary-color);
+}
+
+form button {
+    border: none;
+    background: var(--primary-color);
+    color: aliceblue;
+    font-size: 18px;
+    font-weight: 700;
+    height: 35px;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+form button:hover {
+    background: var(--primary-color-dark);
+}
